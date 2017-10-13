@@ -1,4 +1,47 @@
-.list-group-item:hover {
+.container {
+    width: 1075px;
+}
+
+.list-group {
+    max-height: 80vh;
+    margin-top: 20px;
+    overflow: auto;
+}
+
+.list-group-item {
+    border: 0;
+}
+
+.badge {
     background: #253b56;
-    color: #fff;
+}
+
+.list-group-item:hover {
+    background: #eee;
+    color: green;
+    cursor: pointer;
+}
+
+.table-fixed {
+    height: 80vh;
+    overflow: auto;
+    position: absolute;
+}
+
+thead {
+    border-bottom: 2px solid #253b56;
+}
+
+tr > th {
+    padding-bottom: 10px;
+    width: 400px;
+}
+
+tr > th,
+tr > td:not(:first-child) {
+    text-align: center;
+}
+
+tr > td:first-child {
+    padding: 10px 0 10px 15px;
 }

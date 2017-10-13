@@ -6,7 +6,7 @@ class CharacterListItem extends Component {
     } 
     render() {
         return (
-            <li onClick={() => console.log(this.props.name)} className="list-group-item">
+            <li onClick={() => this.props.onItemClick(this.props.name)} className="list-group-item">
                 <div className="media">
                     <div className="media-left">
                         <i className="glyphicon glyphicon-user"></i>
@@ -20,9 +20,6 @@ class CharacterListItem extends Component {
                 </div>
             </li>
         );
-    }
-    onItemClick() {
-        console.log(this.props.name);
     }
 }
 
