@@ -1,0 +1,22 @@
+{
+  "name": "bluemagic",
+  "version": "1.0.0",
+  "description": "Test project for an IT company",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jcalahi/Bluemagic.git"
+  },
+  "author": "jcalahi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jcalahi/Bluemagic/issues"
+  },
+  "homepage": "https://github.com/jcalahi/Bluemagic#readme",
+  "dependencies": {
+    "watson-developer-cloud": "^2.41.1"
+  }
+}
