@@ -3,15 +3,17 @@ import TextEntryItem from './text-entry-item';
 
 const TextEntryList = ({ textEntry, onTargetClick }) => {
     var entries = textEntry.map((text, idx) => {
-        return <TextEntryItem key={ idx } target={ text } onTargetClick={ onTargetClick } />
+        return <TextEntryItem 
+                    key={ idx } 
+                    target={ text } 
+                    onTargetClick={ onTargetClick } />;
     });
     return (
-        <div>
-            <table className="table-hover col-md-9">
+        <div className="table-container">
+            <table className="table-hover col-md-8">
                 <thead>
                     <tr>
-                        <th>Target Text</th>
-                        <th>Score</th>
+                        <th>Target Text / Line ID and number</th>
                     </tr>
                 </thead>
                 <tbody className="table-fixed">

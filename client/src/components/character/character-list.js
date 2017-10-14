@@ -15,7 +15,7 @@ const CharacterList = ({ characters, onItemClick }) => {
         );
     }
     return (
-        <ul className="list-group col-md-3">
+        <ul className="list-group col-md-4">
             { list }
         </ul>
     );

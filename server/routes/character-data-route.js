@@ -11,7 +11,12 @@ router.post('/chardata', function(req, res) {
     var results = jsonData.filter(function(data) {
         return data.speaker === selectedName;
     }).map(function(target) {
-        return target.text_entry;
+        //return target.text_entry;
+        return {
+            lineId: target.line_id,
+            lineNumber: target.line_number,
+            textEntry: target.text_entry
+        };
     });
 
     res.json({

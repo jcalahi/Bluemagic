@@ -5,6 +5,7 @@ import API from './constants';
 import Header from './components/header/header';
 import CharacterList from './components/character/character-list';
 import TextEntryList from './components/text-entry/text-entry-list';
+import EmotionList from './components/emotion/emotion-list';
 
 class App extends Component {
     constructor(props) {
@@ -35,8 +36,14 @@ class App extends Component {
         return (
             <div>
                 <Header title="Play name: Henry IV" />
-                <CharacterList characters={ this.state.characters } onItemClick={ this.onItemClick } />
-                <TextEntryList textEntry={ this.state.characterEntries } onTargetClick={ this.onTargetClick } />
+                <CharacterList 
+                    characters={ this.state.characters } 
+                    onItemClick={ this.onItemClick } />
+                <TextEntryList 
+                    textEntry={ this.state.characterEntries } 
+                    onTargetClick={ this.onTargetClick } />
+                <EmotionList 
+                    emotion={ this.state.emotions } />
             </div>
         );
     }
@@ -74,11 +81,18 @@ class App extends Component {
         }).then(function(res) {
             return res.json();
         }).then(function(response) {
-            self.setState({
-                emotions: response.emotion
-            });
+            console.info('debug', response); // debug purposes
 
-            console.log(response);
+            if (response.emotion) {
+                self.setState({
+                    emotions: response.emotion.targets
+                });
+            } else {
+                self.setState({
+                    emotions: response.keywords
+                });
+            }
+            
         });
     }
 

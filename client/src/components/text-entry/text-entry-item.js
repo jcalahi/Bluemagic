@@ -1,20 +1,13 @@
-import React, { Component } from 'react';
-import EmotionList from '../emotion/emotion-list';
+import React from 'react';
 
-class TextEntryItem extends Component {
-    constructor(props) {
-        super(props);
-    }
-    render() {
-        return (
-            <tr onClick={() => this.props.onTargetClick(this.props.target)}>
-                <td>{ this.props.target }</td>
-                <td>
-                    <EmotionList />
-                </td>
-            </tr>
-        );
-    }
+const TextEntryItem = ({ target, onTargetClick }) => {
+    return (
+        <tr onClick={() => onTargetClick(target.textEntry)}>
+            <td>{ target.textEntry }</td>
+            <td>{ target.lineId }</td>
+            <td>{ target.lineNumber }</td>
+        </tr>
+    );
 }
 
 export default TextEntryItem;

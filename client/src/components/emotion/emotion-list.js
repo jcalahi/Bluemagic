@@ -1,30 +1,20 @@
 import React from 'react';
 import EmotionListItem from './emotion-list-item';
 
-const EmotionList = () => {
+const EmotionList = ({ emotion }) => {
+    if (emotion.length > 0) {
+        var emotionScores = [];
+        var emotionItems = emotion[0].emotion;
+
+        for (var prop in emotionItems) {
+            emotionScores.push(<EmotionListItem emoType={ prop } width={ emotionItems[prop] * 100 } key={ emotionItems[prop] }/>);    
+        }
+    }
+
     return (
         <div>
-            <EmotionListItem width={25} />
-            <div className="progress">
-                <div className="progress-bar progress-bar-warning">
-                    Disgust
-                </div>
-            </div>
-            <div className="progress">
-                <div className="progress-bar progress-bar-info">
-                    Fear
-                </div>
-            </div>
-            <div className="progress">
-                <div className="progress-bar progress-bar-success">
-                    Joy
-                </div>
-            </div>
-            <div className="progress">
-                <div className="progress-bar progress-bar-primary">
-                    Sadness
-                </div>
-            </div>
+            <h5>Emotion Scores:</h5>
+            { emotionScores }
         </div>
     );
 };

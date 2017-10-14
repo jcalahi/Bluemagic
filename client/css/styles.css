@@ -1,6 +1,3 @@
-.container {
-    width: 1075px;
-}
 
 .list-group {
     max-height: 80vh;
@@ -22,42 +19,63 @@
     cursor: pointer;
 }
 
-.table-fixed {
-    height: 75vh;
-    overflow: auto;
-    position: absolute;
-}
-
 thead {
     border-bottom: 2px solid #253b56;
 }
 
 tr > th {
     padding-bottom: 10px;
-    width: 400px;
+    text-align: right;
 }
 
-tr > th,
-tr > td:not(:first-child) {
-    text-align: center;
+.table-container {
+    height: 70vh;
+}
+.table-fixed {
+    height: 60vh;
+    overflow-y: auto;
+    position: absolute;
+    width: 100%;
 }
 
 tr > td:first-child {
-    max-width: 383px;
-    padding: 10px 15px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    width: 383px;
+    text-align: left;
 }
 
-.progress {
-    border-radius: 0;
-    display: inline-block;
-    margin-bottom: 0;
+tr > td:hover {
+    color: #253b56;
+    cursor: pointer;
+}
+
+tr > td {
+    padding: 10px 0;
+}
+
+tr > td:first-child {
+    width: 500px;
+}
+
+tr > td:nth-child(2) {
     width: 80px;
 }
 
+tr > td:last-child {
+    text-align: right;
+}
+
+h5 {
+    color: #a09e9e;
+}
+
+.progress {
+    background-color: rgb(107, 103, 103);
+    border-radius: 50px;
+    display: inline-block;
+    margin: 5px 15px 0 0;
+    width: 110px;
+}
+
 .progress-bar {
-    color: #d3d3d3;
+    color: #fff;
+    text-transform: uppercase;
 }
