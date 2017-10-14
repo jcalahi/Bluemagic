@@ -18,12 +18,12 @@
 
 .list-group-item:hover {
     background: #eee;
-    color: green;
+    color: #253b56;
     cursor: pointer;
 }
 
 .table-fixed {
-    height: 80vh;
+    height: 75vh;
     overflow: auto;
     position: absolute;
 }
@@ -43,5 +43,21 @@ tr > td:not(:first-child) {
 }
 
 tr > td:first-child {
-    padding: 10px 0 10px 15px;
+    max-width: 383px;
+    padding: 10px 15px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 383px;
+}
+
+.progress {
+    border-radius: 0;
+    display: inline-block;
+    margin-bottom: 0;
+    width: 80px;
+}
+
+.progress-bar {
+    color: #d3d3d3;
 }

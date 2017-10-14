@@ -12,11 +12,14 @@ class App extends Component {
 
         this.state = {
             characters: [],
-            characterEntries: []
+            characterEntries: [],
+            emotions: []
         };
 
         this.onItemClick = this.onItemClick.bind(this);
+        this.onTargetClick = this.onTargetClick.bind(this);
     }
+    // loads data on page load
     componentWillMount() {
         var self = this;
 
@@ -33,10 +36,11 @@ class App extends Component {
             <div>
                 <Header title="Play name: Henry IV" />
                 <CharacterList characters={ this.state.characters } onItemClick={ this.onItemClick } />
-                <TextEntryList textEntry={ this.state.characterEntries } />
+                <TextEntryList textEntry={ this.state.characterEntries } onTargetClick={ this.onTargetClick } />
             </div>
         );
     }
+    // handler when clicking speaker names
     onItemClick(selectedName) {
         var self = this;
         fetch(API.POST_CHAR_DATA, {
@@ -53,6 +57,28 @@ class App extends Component {
             self.setState({
                 characterEntries: response.entries
             });
+        });
+    }
+    // handler when clicking target text
+    onTargetClick(target) {
+        var self = this;
+        
+        fetch(API.POST_TARGET_TEXT, {
+            method: 'POST',
+            headers: {
+                "CONTENT-TYPE": "application/json"
+            },
+            body: JSON.stringify({
+                text: target
+            })
+        }).then(function(res) {
+            return res.json();
+        }).then(function(response) {
+            self.setState({
+                emotions: response.emotion
+            });
+
+            console.log(response);
         });
     }
 

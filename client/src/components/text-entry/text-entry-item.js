@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import EmotionList from '../emotion/emotion-list';
 
 class TextEntryItem extends Component {
     constructor(props) {
@@ -6,9 +7,10 @@ class TextEntryItem extends Component {
     }
     render() {
         return (
-            <tr onClick={() => console.log(this.props.target)}>
+            <tr onClick={() => this.props.onTargetClick(this.props.target)}>
                 <td>{ this.props.target }</td>
                 <td>
+                    <EmotionList />
                 </td>
             </tr>
         );
