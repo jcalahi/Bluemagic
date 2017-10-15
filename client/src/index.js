@@ -20,7 +20,7 @@ class App extends Component {
         this.onItemClick = this.onItemClick.bind(this);
         this.onTargetClick = this.onTargetClick.bind(this);
     }
-    // loads data on page load
+    // get speaker names on page load
     componentWillMount() {
         var self = this;
 
@@ -39,11 +39,11 @@ class App extends Component {
                 <CharacterList 
                     characters={ this.state.characters } 
                     onItemClick={ this.onItemClick } />
+                <EmotionList 
+                    emotion={ this.state.emotions } />
                 <TextEntryList 
                     textEntry={ this.state.characterEntries } 
                     onTargetClick={ this.onTargetClick } />
-                <EmotionList 
-                    emotion={ this.state.emotions } />
             </div>
         );
     }
@@ -69,6 +69,10 @@ class App extends Component {
     // handler when clicking target text
     onTargetClick(target) {
         var self = this;
+
+        self.setState({ // reset state for spinner
+            emotions: []
+        });
         
         fetch(API.POST_TARGET_TEXT, {
             method: 'POST',
@@ -83,6 +87,12 @@ class App extends Component {
         }).then(function(response) {
             console.info('debug', response); // debug purposes
 
+            // do not change state if response is not valid
+            if (typeof response !== 'object') {
+                alert(response);
+                return;
+            }
+
             if (response.emotion) {
                 self.setState({
                     emotions: response.emotion.targets
@@ -92,10 +102,8 @@ class App extends Component {
                     emotions: response.keywords
                 });
             }
-            
         });
     }
-
 }
 
 ReactDOM.render(

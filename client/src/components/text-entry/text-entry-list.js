@@ -9,18 +9,16 @@ const TextEntryList = ({ textEntry, onTargetClick }) => {
                     onTargetClick={ onTargetClick } />;
     });
     return (
-        <div className="table-container">
-            <table className="table-hover col-md-8">
-                <thead>
-                    <tr>
-                        <th>Target Text / Line ID and number</th>
-                    </tr>
-                </thead>
-                <tbody className="table-fixed">
-                    { entries }
-                </tbody>
-            </table>
-        </div>
+        <table className="table-hover col-md-8">
+            <thead>
+                <tr>
+                    <th>Target Text / Line ID and number</th>
+                </tr>
+            </thead>
+            <tbody className="table-fixed">
+                { entries }
+            </tbody>
+        </table>
     );
 };
 

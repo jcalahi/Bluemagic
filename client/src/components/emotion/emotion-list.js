@@ -2,8 +2,9 @@ import React from 'react';
 import EmotionListItem from './emotion-list-item';
 
 const EmotionList = ({ emotion }) => {
+    var emotionScores = [];
+
     if (emotion.length > 0) {
-        var emotionScores = [];
         var emotionItems = emotion[0].emotion;
 
         for (var prop in emotionItems) {
@@ -12,8 +13,8 @@ const EmotionList = ({ emotion }) => {
     }
 
     return (
-        <div>
-            <h5>Emotion Scores:</h5>
+        <div className="emotion">
+            <h5>Score:</h5>
             { emotionScores }
         </div>
     );
