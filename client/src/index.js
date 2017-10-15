@@ -15,7 +15,8 @@ class App extends Component {
             characters: [],
             characterEntries: [],
             emotions: [],
-            isLoading: null
+            isLoading: null,
+            speakerName: ''
         };
 
         this.onItemClick = this.onItemClick.bind(this);
@@ -38,7 +39,7 @@ class App extends Component {
     render() {
         return (
             <div>
-                <Header title="Play name: Henry IV" />
+                <Header name={ this.state.speakerName } />
                 <CharacterList 
                     characters={ this.state.characters } 
                     onItemClick={ this.onItemClick } />
@@ -54,6 +55,11 @@ class App extends Component {
     // handler when clicking speaker names
     onItemClick(selectedName) {
         const self = this;
+
+        self.setState({
+            emotions: [],
+            speakerName: selectedName
+        });
 
         fetch(CONSTANTS.POST_CHAR_DATA, {
             method: 'POST',

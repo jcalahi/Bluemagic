@@ -8,7 +8,13 @@ const EmotionList = ({ emotion, isLoading }) => {
         let emotionItems = emotion[0].emotion;
 
         for (let prop in emotionItems) {
-            emotionScores.push(<EmotionListItem emoType={ prop } width={ emotionItems[prop] * 100 } key={ emotionItems[prop] }/>);    
+            emotionScores.push(
+                <EmotionListItem 
+                    emoType={ prop } 
+                    width={ emotionItems[prop] * 100 } 
+                    key={ emotionItems[prop] } 
+                />
+            );    
         }
     }
 
