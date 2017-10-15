@@ -2,9 +2,9 @@ import React from 'react';
 import CharacterListItem from './character-list-item';
 
 const CharacterList = ({ characters, onItemClick }) => {
-    var list = [];
+    let list = [];
 
-    for (var name in characters) {
+    for (let name in characters) {
         list.push(
             <CharacterListItem 
                 key={ name } 
